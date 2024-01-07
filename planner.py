@@ -122,11 +122,11 @@ class SimpleDoorKey_Planner(Base_Planner):
         
         self.mediator = SimpleDoorKey_Mediator()
         if seed %2 ==0:
-            self.llm_model = "vicuna-7b-3"
-            self.llm_url = 'http://10.106.27.11:8003/v1/chat/completions'
+            self.llm_model = "gpt-4"
+            self.llm_url = 'https://api.openai.com/v1/chat/completions'
         else:
-            self.llm_model = "vicuna-7b-0"
-            self.llm_url = 'http://10.106.27.11:8000/v1/chat/completions'
+            self.llm_model = "gpt-4"
+            self.llm_url = 'https://api.openai.com/v1/chat/completions'
 
     def __call__(self, input):
         return self.forward(input)
