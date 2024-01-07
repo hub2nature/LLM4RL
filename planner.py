@@ -160,11 +160,11 @@ class KeyInBox_Planner(Base_Planner):
         super().__init__()
         self.mediator = KeyInBox_Mediator()
         if seed %2 == 0:
-            self.llm_model = "vicuna-7b-4"
-            self.llm_url = 'http://10.109.116.3:8004/v1/chat/completions'
+            self.llm_model = "gpt-4"
+            self.llm_url = 'https://api.openai.com/v1/chat/completions'
         else:
-            self.llm_model = "vicuna-7b-1"
-            self.llm_url = 'http://10.109.116.3:8001/v1/chat/completions'
+            self.llm_model = "gpt-4"
+            self.llm_url = 'https://api.openai.com/v1/chat/completions'
 
     def __call__(self, input):
         return self.forward(input)
@@ -198,11 +198,11 @@ class RandomBoxKey_Planner(Base_Planner):
         super().__init__()
         self.mediator = RandomBoxKey_Mediator()
         if seed %2 == 0:
-            self.llm_model = "vicuna-7b-5"
-            self.llm_url = 'http://10.109.116.3:8005/v1/chat/completions'
+            self.llm_model = "gpt-4"
+            self.llm_url = 'https://api.openai.com/v1/chat/completions'
         else:
-            self.llm_model = "vicuna-7b-2"
-            self.llm_url = 'http://10.109.116.3:8002/v1/chat/completions'    
+            self.llm_model = "gpt-4"
+            self.llm_url = 'https://api.openai.com/v1/chat/completions'    
     def __call__(self, input):
         return self.forward(input)
     
@@ -233,11 +233,11 @@ class ColoredDoorKey_Planner(Base_Planner):
         super().__init__()
         self.mediator = ColoredDoorKey_Mediator()
         if seed %2 == 0:
-            self.llm_model = "vicuna-7b-7"
-            self.llm_url = 'http://10.109.116.3:5678/v1/chat/completions'
+            self.llm_model = "gpt-4"
+            self.llm_url = 'https://api.openai.com/v1/chat/completions'
         else:
-            self.llm_model = "vicuna-7b-6"
-            self.llm_url = 'http://10.109.116.3:8006/v1/chat/completions'
+            self.llm_model = "gpt-4"
+            self.llm_url = 'https://api.openai.com/v1/chat/completions'
 
 
     def __call__(self, input):
