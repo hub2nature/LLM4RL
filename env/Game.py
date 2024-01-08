@@ -181,8 +181,10 @@ class Game:
                 ask_flag = dist.sample()
                 log_probs = dist.log_prob(ask_flag)
                 print("col183")
+                print(skill_done,ask_flag)
 
                 if skill_done or ask_flag:
+                    
                     interactions += 1
                     skill = self.planner(obs)
                     # print(skill)
@@ -198,7 +200,7 @@ class Game:
                         print("col198")
                     pre_skill = skill
                     self.Executive_net = Executive_net(skill,obs[0],self.agent_view_size)
-
+                print("col201")
                 ## RL choose skill, and return action_list
                 action, skill_done = self.Executive_net(obs[0])
                 print("col204")
