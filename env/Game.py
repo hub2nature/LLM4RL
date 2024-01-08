@@ -84,6 +84,7 @@ class Game:
         start_time = time.time()
         for itr in range(self.n_itr):
             print("********** Iteration {} ************".format(itr))
+            print("1")
             print("time elapsed: {:.2f} s".format(time.time() - start_time))
 
             ## collecting ##
