@@ -35,17 +35,20 @@ class Base_Planner(ABC):
 
     ## initial prompt, write in 'prompt/task_info.json
     def initial_planning(self, decription, example):
+        print(description,example)
         if self.llm_model is None:
             assert "no select Large Language Model"
         prompts = decription + example
         self.dialogue_system += decription + "\n"
         self.dialogue_system += example + "\n"
+        print("prompts",prompts)
 
         ## set system part
         server_error_cnt = 0
         while server_error_cnt<10:
             try:
                 url = self.llm_url
+                print("url",url)
                 headers = {'Content-Type': 'application/json'}
                 
                 data = {'model': self.llm_model, "messages":[{"role": "system", "content": prompts}]}
@@ -64,6 +67,7 @@ class Base_Planner(ABC):
                 print(e)    
 
     def query_codex(self, prompt_text):
+        print("prompt_text",prompt_text)
         server_flag = 0
         server_error_cnt = 0
         response = ''
@@ -74,7 +78,7 @@ class Base_Planner(ABC):
                 headers = {'Content-Type': 'application/json'}
                 
                 # prompt_text
-                
+                print("url",url)
                 data = {'model': self.llm_model, "messages":[{"role": "user", "content": prompt_text }]}
                 response = requests.post(url, headers=headers, json=data)
                 
@@ -103,6 +107,7 @@ class Base_Planner(ABC):
             return False
         
     def step_planning(self, text):
+        print("text",text)
         ## seed for LLM and get feedback
         plan = self.query_codex(text)
         if plan is not None:
