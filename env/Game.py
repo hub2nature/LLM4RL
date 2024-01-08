@@ -171,7 +171,7 @@ class Game:
 
             utils.global_param.set_value('exp', None)
             utils.global_param.set_value('explore_done', False)
-            while not done and traj_len < self.max_ep_len:
+            while not done and traj_len < 50: #self.max_ep_len:
                 dist, value = self.Communication_net(torch.Tensor(com_obs).to(self.device))         
                 ask_flag = dist.sample()
                 log_probs = dist.log_prob(ask_flag)
