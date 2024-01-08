@@ -65,6 +65,7 @@ if __name__ == "__main__":
         eval.eval_RL_policy(args.test_num)
 
     elif sys.argv[1] == 'train':
+        print("1")
         sys.argv.remove(sys.argv[1])
         args = parser.parse_args()
         from env.Game import Game
