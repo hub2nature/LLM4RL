@@ -70,7 +70,7 @@ if __name__ == "__main__":
         print("5")
 
     elif sys.argv[1] == 'train':
-        print("1")
+        print("line73")
         sys.argv.remove(sys.argv[1])
         args = parser.parse_args()
         from env.Game import Game
