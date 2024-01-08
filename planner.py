@@ -35,7 +35,7 @@ class Base_Planner(ABC):
 
     ## initial prompt, write in 'prompt/task_info.json
     def initial_planning(self, decription, example):
-        print(description,example)
+        print(decription,example)
         if self.llm_model is None:
             assert "no select Large Language Model"
         prompts = decription + example
