@@ -10,7 +10,7 @@ os.system('rm tmp.txt')
 
 import torch
 import utils
-
+print("1")
 def setup_seed(seed):
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
