@@ -90,12 +90,17 @@ class Game:
             ## collecting ##
             sample_start = time.time()
             buffer = []
+            print("game93")
             #for _ in range(self.traj_per_itr):
             for _ in range(100):
+                print("game96")
                 buffer.append(self.collect(self.env_fn,seed=self.seed))
             self.buffer = algos.Merge_Buffers(buffer,device=self.device)
+            print("game99")
             total_steps = len(self.buffer)
+            print("game101")
             samp_time = time.time() - sample_start
+            print("game103")
             print("{:.2f} s to collect {:6n} timesteps | {:3.2f}sample/s.".format(samp_time, total_steps, (total_steps)/samp_time))
             self.total_steps += total_steps
 
