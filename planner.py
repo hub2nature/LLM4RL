@@ -48,11 +48,12 @@ class Base_Planner(ABC):
         while server_error_cnt<10:
             try:
                 url = self.llm_url
-                print("url",url)
+                print("url",url,"51")
                 headers = {'Content-Type': 'application/json'}
                 
                 data = {'model': self.llm_model, "messages":[{"role": "system", "content": prompts}]}
                 response = requests.post(url, headers=headers, json=data)
+                print("56response",response)
                 
                 if response.status_code == 200:
                     result = response.json()                    
@@ -81,6 +82,8 @@ class Base_Planner(ABC):
                 print("url",url)
                 data = {'model': self.llm_model, "messages":[{"role": "user", "content": prompt_text }]}
                 response = requests.post(url, headers=headers, json=data)
+                print(response)
+                
                 
                 
 
