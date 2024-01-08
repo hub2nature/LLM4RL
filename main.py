@@ -74,15 +74,24 @@ if __name__ == "__main__":
     elif sys.argv[1] == 'train':
         print("line73")
         sys.argv.remove(sys.argv[1])
+        print("line77")
         args = parser.parse_args()
+        print("line79")
         from env.Game import Game
+        print("line81")
 
         for i in args.run_seed_list:
+            print("line84")
             setup_seed(i)
+            print("line86")
             args.save_name = args.save_name + str(i)
+            print("line88")
             game = Game(args, run_seed=i)
+            print("line90")
             game.reset()
+            print("line92")
             game.train()
+            print("line94")
         print("6")
     elif sys.argv[1] == 'train_RL':
         sys.argv.remove(sys.argv[1])
