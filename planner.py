@@ -13,6 +13,7 @@ import os, requests
 from typing import Any
 from mediator import *
 from utils import global_param
+import time
 
 
 from abc import ABC, abstractmethod
@@ -54,7 +55,7 @@ class Base_Planner(ABC):
                 data = {'model': self.llm_model, "messages":[{"role": "system", "content": prompts}]}
                 response = requests.post(url, headers=headers, json=data)
                 print("56response",response)
-                sleep(10)
+                time.sleep(10)
                 if response.status_code == 200:
                     result = response.json()                    
                     server_flag = 1
@@ -83,7 +84,7 @@ class Base_Planner(ABC):
                 data = {'model': self.llm_model, "messages":[{"role": "user", "content": prompt_text }]}
                 response = requests.post(url, headers=headers, json=data)
                 print(response)
-                
+                time.sleep(10)
                 
                 
 
