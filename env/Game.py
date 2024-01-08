@@ -92,7 +92,7 @@ class Game:
             buffer = []
             print("game93")
             #for _ in range(self.traj_per_itr):
-            for _ in range(100):
+            for _ in range(10):
                 print("game96")
                 buffer.append(self.collect(self.env_fn,seed=self.seed))
             self.buffer = algos.Merge_Buffers(buffer,device=self.device)
