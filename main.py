@@ -45,7 +45,7 @@ if __name__ == "__main__":
     parser.add_argument("--run_seed_list", type=int, nargs="*", default=[0])
     parser.add_argument("-f", "--file", required=False)
 
-    print(''=====', sys.argv, len(sys.argv), parser)
+    print('=====', sys.argv, len(sys.argv), parser)
 
 
 
