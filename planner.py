@@ -54,7 +54,7 @@ class Base_Planner(ABC):
                 data = {'model': self.llm_model, "messages":[{"role": "system", "content": prompts}]}
                 response = requests.post(url, headers=headers, json=data)
                 print("56response",response)
-                
+                sleep(10)
                 if response.status_code == 200:
                     result = response.json()                    
                     server_flag = 1
