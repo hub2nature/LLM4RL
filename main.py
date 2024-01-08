@@ -1,4 +1,5 @@
 import argparse
+print("1")
 import os,json, sys
 import numpy as np
 # single gpu    
