@@ -91,7 +91,7 @@ class Game:
             sample_start = time.time()
             buffer = []
             #for _ in range(self.traj_per_itr):
-            for _ in range(1000):
+            for _ in range(100):
                 buffer.append(self.collect(self.env_fn,seed=self.seed))
             self.buffer = algos.Merge_Buffers(buffer,device=self.device)
             total_steps = len(self.buffer)
