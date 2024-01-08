@@ -119,7 +119,7 @@ class Base_Planner(ABC):
 class SimpleDoorKey_Planner(Base_Planner):
     def __init__(self, seed=0):
         super().__init__()
-        
+        print("1")
         self.mediator = SimpleDoorKey_Mediator()
         if seed %2 ==0:
             self.llm_model = "gpt-4"
