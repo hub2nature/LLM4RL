@@ -153,10 +153,12 @@ class Game:
     def collect(self, env_fn, seed=None):
         # Do one agent-environment interaction
         env = utils.WrapEnv(env_fn)
+        print("col156")
         with torch.no_grad():
             buffer = algos.Buffer(self.gamma, self.lam)
             obs = env.reset(seed)
             self.planner.reset()
+            print("col161")
 
             done = False
             skill_done = True
@@ -165,32 +167,41 @@ class Game:
             pre_skill = None
             if self.frame_stack >1:
                 com_obs = obs
+                print("col170")
             else:
                 his_obs = obs
                 com_obs = obs - his_obs
+                print("col174")
 
             utils.global_param.set_value('exp', None)
             utils.global_param.set_value('explore_done', False)
+            print("col178")
             while not done and traj_len < 50: #self.max_ep_len:
                 dist, value = self.Communication_net(torch.Tensor(com_obs).to(self.device))         
                 ask_flag = dist.sample()
                 log_probs = dist.log_prob(ask_flag)
+                print("col183")
 
                 if skill_done or ask_flag:
                     interactions += 1
                     skill = self.planner(obs)
                     # print(skill)
+                    print("col189")
                     if pre_skill == skill: # additional penalty term for repeat same skill
                         repeat_feedback = np.array([.5])
+                        print("col192")
                     elif pre_skill is None:
                         repeat_feedback = np.array([0.])
+                        print("col195")
                     else:
                         repeat_feedback = np.array([-0.1])
+                        print("col198")
                     pre_skill = skill
                     self.Executive_net = Executive_net(skill,obs[0],self.agent_view_size)
 
                 ## RL choose skill, and return action_list
                 action, skill_done = self.Executive_net(obs[0])
+                print("col204")
 
                 ## one step do one action in action_list
                 next_obs, reward, done, info = env.step(np.array([action]))
@@ -202,13 +213,17 @@ class Game:
                 if self.frame_stack >1:
                     obs = next_obs
                     com_obs = obs
+                    print("col216")
                 else:
                     his_obs = obs
                     obs = next_obs
                     com_obs = obs - his_obs
+                    print("col221")
                 traj_len += 1
             _, value = self.Communication_net(torch.Tensor(com_obs).to(self.device))
             buffer.finish_path(last_val=(not done) * value.to("cpu").numpy(), interactions=interactions)
+            
+            print("col226")
 
         return buffer
 
