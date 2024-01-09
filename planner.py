@@ -54,6 +54,7 @@ class Base_Planner(ABC):
                 
                 data = {'model': self.llm_model, "messages":[{"role": "system", "content": prompts}]}
                 prompt = "Translate the following English text to French: 'Hello, how are you?'"
+                print("I am at line 57",prompt)
                 response = openai.Completion.create(
     engine="gpt-3.5-turbo-instruct",
     prompt=prompt,
