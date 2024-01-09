@@ -56,6 +56,8 @@ class Base_Planner(ABC):
                 
                 data = {'model': self.llm_model, "messages":[{"role": "system", "content": prompts}]}
                 print(headers,data)
+
+                print("openai api key",openai.api_key)
                 #api_key = "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"  # Replace with your actual API key 
  
                 #openai.api_key = api_key 
