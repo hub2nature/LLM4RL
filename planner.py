@@ -7,6 +7,8 @@
 @Version :   1.0
 @Desc    :   None
 '''
+api_key = "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"  # Replace with your actual API key 
+openai.api_key = api_key 
 print("planner1")
 
 import os, requests
@@ -53,18 +55,19 @@ class Base_Planner(ABC):
                 headers = {'Content-Type': 'application/json'}
                 
                 data = {'model': self.llm_model, "messages":[{"role": "system", "content": prompts}]}
-                api_key = "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"  # Replace with your actual API key 
+                #api_key = "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"  # Replace with your actual API key 
  
-                openai.api_key = api_key 
+                #openai.api_key = api_key 
  
-                prompt = "Translate the following English text to French: 'Hello, how are you?'"
-                print("I am at line 57",prompt)
-                response = openai.Completion.create(
-    engine="gpt-3.5-turbo-instruct",
-    prompt=prompt,
-    max_tokens=50
-)
+                #prompt = "Translate the following English text to French: 'Hello, how are you?'"
+                #print("I am at line 57",prompt)
+                $response = openai.Completion.create(
+    #engine="gpt-3.5-turbo-instruct",
+    #prompt=prompt,
+    #max_tokens=50
+#)
                 print(response.choices[0].text) 
+                response = requests.post(url, headers=headers, json=data)
                 print("56response",response)
                 time.sleep(10)
                 if response.status_code == 200:
