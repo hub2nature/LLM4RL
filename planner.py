@@ -61,12 +61,12 @@ class Base_Planner(ABC):
  
                 #prompt = "Translate the following English text to French: 'Hello, how are you?'"
                 #print("I am at line 57",prompt)
-                $response = openai.Completion.create(
+                #response = openai.Completion.create(
     #engine="gpt-3.5-turbo-instruct",
     #prompt=prompt,
     #max_tokens=50
 #)
-                print(response.choices[0].text) 
+                #print(response.choices[0].text) 
                 response = requests.post(url, headers=headers, json=data)
                 print("56response",response)
                 time.sleep(10)
