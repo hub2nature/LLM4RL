@@ -53,6 +53,7 @@ class Base_Planner(ABC):
                 headers = {'Content-Type': 'application/json'}
                 
                 data = {'model': self.llm_model, "messages":[{"role": "system", "content": prompts}]}
+                prompt = "Translate the following English text to French: 'Hello, how are you?'"
                 response = openai.Completion.create(
     engine="gpt-3.5-turbo-instruct",
     prompt=prompt,
