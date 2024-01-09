@@ -14,7 +14,7 @@ from typing import Any
 from mediator import *
 from utils import global_param
 import time
-
+import openai
 
 from abc import ABC, abstractmethod
 
