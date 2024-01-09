@@ -53,6 +53,10 @@ class Base_Planner(ABC):
                 headers = {'Content-Type': 'application/json'}
                 
                 data = {'model': self.llm_model, "messages":[{"role": "system", "content": prompts}]}
+                api_key = "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"  # Replace with your actual API key 
+ 
+                openai.api_key = api_key 
+ 
                 prompt = "Translate the following English text to French: 'Hello, how are you?'"
                 print("I am at line 57",prompt)
                 response = openai.Completion.create(
