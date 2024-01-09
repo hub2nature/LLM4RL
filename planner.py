@@ -61,13 +61,13 @@ class Base_Planner(ABC):
  
                 #prompt = "Translate the following English text to French: 'Hello, how are you?'"
                 #print("I am at line 57",prompt)
-                #response = openai.Completion.create(
-    #engine="gpt-3.5-turbo-instruct",
-    #prompt=prompt,
-    #max_tokens=50
-#)
+                response = openai.Completion.create(
+    engine="gpt-3.5-turbo-instruct",
+    prompt=prompts,
+    max_tokens=50
+)
                 #print(response.choices[0].text) 
-                response = requests.post(url, headers=headers, json=data)
+                #response = requests.post(url, headers=headers, json=data)
                 print("56response",response)
                 time.sleep(10)
                 if response.status_code == 200:
@@ -96,7 +96,12 @@ class Base_Planner(ABC):
                 # prompt_text
                 print("url",url)
                 data = {'model': self.llm_model, "messages":[{"role": "user", "content": prompt_text }]}
-                response = requests.post(url, headers=headers, json=data)
+                #response = requests.post(url, headers=headers, json=data)
+                response = openai.Completion.create(
+    engine="gpt-3.5-turbo-instruct",
+    prompt=prompt_text,
+    max_tokens=50
+)
                 print(response)
                 time.sleep(10)
                 
