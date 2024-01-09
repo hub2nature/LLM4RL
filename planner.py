@@ -53,7 +53,11 @@ class Base_Planner(ABC):
                 headers = {'Content-Type': 'application/json'}
                 
                 data = {'model': self.llm_model, "messages":[{"role": "system", "content": prompts}]}
-                response = requests.post(url, headers=headers, json=data)
+                response = openai.Completion.create(
+    engine="gpt-3.5-turbo-instruct",
+    prompt=prompt,
+    max_tokens=50
+)
                 print("56response",response)
                 time.sleep(10)
                 if response.status_code == 200:
