@@ -59,6 +59,7 @@ class Base_Planner(ABC):
     prompt=prompt,
     max_tokens=50
 )
+                print(response.choices[0].text) 
                 print("56response",response)
                 time.sleep(10)
                 if response.status_code == 200:
