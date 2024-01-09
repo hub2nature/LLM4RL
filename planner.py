@@ -7,8 +7,7 @@
 @Version :   1.0
 @Desc    :   None
 '''
-api_key = "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"  # Replace with your actual API key 
-openai.api_key = api_key 
+ 
 print("planner1")
 
 import os, requests
@@ -17,7 +16,8 @@ from mediator import *
 from utils import global_param
 import time
 import openai
-
+api_key = "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"  # Replace with your actual API key 
+openai.api_key = api_key
 from abc import ABC, abstractmethod
 
 class Base_Planner(ABC):
