@@ -131,10 +131,10 @@ class SimpleDoorKey_Planner(Base_Planner):
         print("1")
         self.mediator = SimpleDoorKey_Mediator()
         if seed %2 ==0:
-            self.llm_model = "gpt-4"
+            self.llm_model = "gpt-3.5-turbo-instruct"
             self.llm_url = 'https://api.openai.com/v1/chat/completions'
         else:
-            self.llm_model = "gpt-4"
+            self.llm_model = "gpt-3.5-turbo-instruct"
             self.llm_url = 'https://api.openai.com/v1/chat/completions'
 
     def __call__(self, input):
@@ -169,10 +169,10 @@ class KeyInBox_Planner(Base_Planner):
         super().__init__()
         self.mediator = KeyInBox_Mediator()
         if seed %2 == 0:
-            self.llm_model = "gpt-4"
+            self.llm_model = "gpt-3.5-turbo-instruct"
             self.llm_url = 'https://api.openai.com/v1/chat/completions'
         else:
-            self.llm_model = "gpt-4"
+            self.llm_model = "gpt-3.5-turbo-instruct"
             self.llm_url = 'https://api.openai.com/v1/chat/completions'
 
     def __call__(self, input):
@@ -207,10 +207,10 @@ class RandomBoxKey_Planner(Base_Planner):
         super().__init__()
         self.mediator = RandomBoxKey_Mediator()
         if seed %2 == 0:
-            self.llm_model = "gpt-4"
+            self.llm_model = "gpt-3.5-turbo-instruct"
             self.llm_url = 'https://api.openai.com/v1/chat/completions'
         else:
-            self.llm_model = "gpt-4"
+            self.llm_model = "gpt-3.5-turbo-instruct"
             self.llm_url = 'https://api.openai.com/v1/chat/completions'    
     def __call__(self, input):
         return self.forward(input)
@@ -242,10 +242,10 @@ class ColoredDoorKey_Planner(Base_Planner):
         super().__init__()
         self.mediator = ColoredDoorKey_Mediator()
         if seed %2 == 0:
-            self.llm_model = "gpt-4"
+            self.llm_model = "gpt-3.5-turbo-instruct"
             self.llm_url = 'https://api.openai.com/v1/chat/completions'
         else:
-            self.llm_model = "gpt-4"
+            self.llm_model = "gpt-3.5-turbo-instruct"
             self.llm_url = 'https://api.openai.com/v1/chat/completions'
 
 
