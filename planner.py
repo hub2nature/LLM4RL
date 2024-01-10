@@ -16,7 +16,7 @@ from mediator import *
 from utils import global_param
 import time
 import openai
-api_key = "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"  # Replace with your actual API key 
+api_key = "ADDED-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"  # Replace with your actual API key 
 openai.api_key = api_key
 from abc import ABC, abstractmethod
 
